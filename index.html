@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Curso - EduTech</title>
+
+    <style>
+        /* Reset: remove margens padrão e facilita o cálculo de tamanhos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #e8f1ee;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Cartão principal com os dois painéis lado a lado */
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            min-height: 520px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        /* Painel esquerdo (verde) */
+        .painel-esquerdo {
+            flex: 1;
+            background: #3b9e7c;
+            color: #fff;
+            padding: 50px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .painel-esquerdo h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .painel-esquerdo p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* Painel direito (branco) */
+        .painel-direito {
+            flex: 1.2;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .campo {
+            margin-bottom: 18px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .campo input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        /* Destaque quando o campo está em foco */
+        .campo input:focus {
+            outline: none;
+            border-color: #3b9e7c;
+            box-shadow: 0 0 0 3px rgba(59, 158, 124, 0.2);
+        }
+
+        .botoes {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .botoes button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+        }
+
+        .btn-limpar {
+            background: #eee;
+            color: #555;
+        }
+
+        .btn-limpar:hover {
+            background: #ddd;
+            transform: translateY(-2px);
+        }
+
+        .btn-cadastrar {
+            background: #3b9e7c;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(59, 158, 124, 0.35);
+        }
+
+        .btn-cadastrar:hover {
+            background: #2f8567;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(59, 158, 124, 0.45);
+        }
+
+        /* Responsivo: em telas pequenas, os painéis ficam empilhados */
+        @media (max-width: 700px) {
+            .container {
+                flex-direction: column;
+            }
+            .painel-esquerdo,
+            .painel-direito {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- PAINEL ESQUERDO -->
+        <div class="painel-esquerdo">
+            <h1>Cadastrar Curso</h1>
+            <p>
+                Cada curso cadastrado é uma porta aberta para novos talentos.
+                Registre agora e ajude a transformar conhecimento em oportunidade!
+            </p>
+        </div>
+
+        <!-- PAINEL DIREITO -->
+        <div class="painel-direito">
+            <form action="cadastrar_curso.php" method="POST">
+
+                <div class="campo">
+                    <label for="nome_curso">Nome do Curso</label>
+                    <input type="text" id="nome_curso" name="nome_curso"
+                           placeholder="Ex.: Desenvolvimento Web com PHP" required>
+                </div>
+
+                <div class="campo">
+                    <label for="area_tecnologica">Área Tecnológica</label>
+                    <input type="text" id="area_tecnologica" name="area_tecnologica"
+                           placeholder="Ex.: Tecnologia da Informação" required>
+                </div>
+
+                <div class="campo">
+                    <label for="quantidade_alunos">Quantidade de Alunos</label>
+                    <input type="number" id="quantidade_alunos" name="quantidade_alunos"
+                           min="1" placeholder="Ex.: 30" required>
+                </div>
+
+                <div class="campo">
+                    <label for="empresa_patrocinadora">Empresa Patrocinadora</label>
+                    <input type="text" id="empresa_patrocinadora" name="empresa_patrocinadora"
+                           placeholder="Ex.: Empresa XYZ" required>
+                </div>
+
+                <div class="botoes">
+                    <button type="reset" class="btn-limpar">Limpar</button>
+                    <button type="submit" class="btn-cadastrar">Cadastrar Curso</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
